@@ -15,4 +15,5 @@ for ($fila=1;$fila<=$cantfilas;$fila++)
     echo "</tr>";
 };
 echo "</table>";
+echo "hola"
 ?>
