@@ -21,7 +21,6 @@ echo "<table border=1>";
         echo "<td> $dias[$i] </td>";
     };
     echo "</tr>";
-    
 	
 	$last_cell=$diaSemana+$ultimoDiaMes;
 	
