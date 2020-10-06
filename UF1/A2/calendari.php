@@ -13,8 +13,6 @@ $ultimoDiaMes=date("d",(mktime(0,0,0,$mes+1,1,$año)-1));
 
 $dias=array("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo");
 
-echo $ultimoDiaMes;
-
 echo "<table border=1>";
 
     echo "<tr>";
@@ -26,47 +24,22 @@ echo "<table border=1>";
 
     $i=1;
     $dia=1;
-    while ($dia<=$ultimoDiaMes){
+    while ($dia<$ultimoDiaMes){
         echo "<tr>";
         $cont=0;
-        while ($cont<7 && $i<=$ultimoDiaMes){
-	    while ($i<$diaSemana){
-                echo "<td> / </td>";
-		$i++;
-		$cont++;
+        while ($cont<7 && $dia<$ultimoDiaMes){
+            while ($i<$diaSemana){
+                echo "<td>&nbsp;</td>";
+                $i++;
+                $cont++;
             }
             echo "<td> $dia </td>";
             $dia++;
-	    $cont++;
-	    $i++;
+            $cont++;
         }
         echo "</tr>";
     }
 
-
-
-/*
-	$last_cell=$diaSemana+$ultimoDiaMes;
-	
-	for($i=1;$i<=42;$i++)
-	{
-		if($i==$diaSemana)
-		{
-			$dia=1;
-		}
-		if($i<$diaSemana || $i>=$last_cell)
-		{
-			echo "<td>&nbsp;</td>";
-		}else{
-			echo "<td>$dia</td>";
-			$dia++;
-		}
-		if($i%7==0)
-		{
-			echo "</tr><tr>\n";
-        	}
-	}
-*/
 echo "</table>"
 
 ?>
