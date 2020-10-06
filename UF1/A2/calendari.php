@@ -17,17 +17,29 @@ $dias=array("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo");
 
 echo "<table border=1>";
 
-	echo "<tr>";
-		echo "<td> $mes </td>";
-	echo "</tr>";
-
-	echo "<tr>";
-	for ($i=0;$i<=6;$i++)
-	{
-       		echo "<td> $dias[$i] </td>";
+    echo "<tr>";
+    for ($i=0;$i<=6;$i++)
+    {
+        echo "<td> $dias[$i] </td>";
    	};
-   	echo "</tr>";
-	
+    echo "</tr>";
+
+    $i=1;
+    $dia=1;
+    while ($i<$ultimoDiaMes){
+        echo "<tr>";
+        $cont=0;
+        while ($cont<6){
+            echo "<td> $dia </td>";
+            $dia++;
+        }
+        echo "</tr>";
+        $i++;
+    }
+
+
+
+/*
 	$last_cell=$diaSemana+$ultimoDiaMes;
 	
 	for($i=1;$i<=42;$i++)
@@ -48,6 +60,7 @@ echo "<table border=1>";
 			echo "</tr><tr>\n";
         	}
 	}
-
+*/
 echo "</table>"
+
 ?>
