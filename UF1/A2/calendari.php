@@ -33,9 +33,9 @@ echo "<table border=1>";
             echo "<td> $dia </td>";
             $dia++;
 	    $cont++;
+	    $i++;
         }
         echo "</tr>";
-        $i++;
     }
 
 
