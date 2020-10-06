@@ -31,7 +31,7 @@ echo "<table border=1>";
         $cont=0;
         while ($cont<7 && $i<=$ultimoDiaMes){
 	    while ($i<$diaSemana){
-                echo "/";
+                echo "<td> / </td>";
 		$i++;
             }
             echo "<td> $dia </td>";
