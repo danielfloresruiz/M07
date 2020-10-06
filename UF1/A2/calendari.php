@@ -13,7 +13,7 @@ $ultimoDiaMes=date("d",(mktime(0,0,0,$mes+1,1,$año)-1));
 
 $dias=array("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo");
 
-
+echo $ultimoDiaMes;
 
 echo "<table border=1>";
 
