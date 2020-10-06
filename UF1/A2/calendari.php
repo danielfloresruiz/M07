@@ -7,18 +7,18 @@ $diaActual=date("j");
  
 //Obtenemos el dia de la semana del primer dia
 //Devuelve 0 para domingo, 6 para sabado
-$diaSemana=date("w",mktime(0,0,0,$mes,1,$año))+7;
-$mesactual=date("F",mktime(0,0,0,$mes,1,$año))+7;
+$diaSemana=date("w",mktime(0,0,0,$mes,1,$año));
 //Obtenemos el ultimo dia del mes
 $ultimoDiaMes=date("d",(mktime(0,0,0,$mes+1,1,$año)-1));
 
 $dias=array("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo");
 
 
+
 echo "<table border=1>";
 
 	echo "<tr>";
-		echo "<td> $mesactual </td>";
+		echo "<td> $mes </td>";
 	echo "</tr>";
 
 	echo "<tr>";
