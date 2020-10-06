@@ -36,6 +36,10 @@ echo "<table border=1>";
             $dia++;
             $cont++;
         }
+        while ($cont<7){
+            echo "<td>&nbsp;</td>";
+            $cont++;
+        }
         echo "</tr>";
     }
 
