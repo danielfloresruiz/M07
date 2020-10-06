@@ -29,7 +29,7 @@ echo "<table border=1>";
     while ($i<$ultimoDiaMes){
         echo "<tr>";
         $cont=0;
-        while ($cont<6){
+        while ($cont<7){
             echo "<td> $dia </td>";
             $dia++;
 	    $cont++;
