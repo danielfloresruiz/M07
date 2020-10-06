@@ -26,10 +26,10 @@ echo "<table border=1>";
 
     $i=1;
     $dia=1;
-    while ($i<$ultimoDiaMes){
+    while ($i<=$ultimoDiaMes){
         echo "<tr>";
         $cont=0;
-        while ($cont<7 && $i<$ultimoDiaMes){
+        while ($cont<7 && $i<=$ultimoDiaMes){
             echo "<td> $dia </td>";
             $dia++;
 	    $cont++;
