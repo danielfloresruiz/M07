@@ -18,7 +18,7 @@ $dias=array("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo");
 echo "<table border=1>";
 
 	echo "<tr>";
-		echo "<td> $mes </td>";
+		echo "<td> $mesactual </td>";
 	echo "</tr>";
 
 	echo "<tr>";
