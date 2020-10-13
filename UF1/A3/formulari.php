@@ -2,8 +2,12 @@
 //min 1:18:20 https://www.youtube.com/watch?v=V6oUxZLWMzg&list=PLUznOARP_ddV78gyS28Rrgo8MjrCPI4Ea&index=7
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Has escrit: ".$_REQUEST["mytext"];
-    echo "Has apretat el radio numero: ".$_REQUEST["myradio"];
-    echo "Has apretat el check: ".$_REQUEST["mycheckbox"];
+    if (isset($_REQUEST["myradio"])){
+        print_r($_REQUEST["myradio"]);
+    }
+    if (isset($_REQUEST["mycheckbox"])){
+        print_r($_REQUEST["mycheckbox"]);
+    }
     echo "Has seleccinat: ".$_REQUEST["myselect"];
     echo "Has escti a la area de text: ".$_REQUEST["mytextarea"];
     
