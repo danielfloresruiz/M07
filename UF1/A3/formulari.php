@@ -3,12 +3,13 @@
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Has escrit: ".$_REQUEST["mytext"]."<br>";
     
-    echo "Has elegit el radio numero: ";
     if (isset($_REQUEST["myradio"])){
+        echo "Has elegit el radio numero: ";
         print_r($_REQUEST["myradio"])."<br>";
     }
-    echo "<br>Has elegit el check numero: ";
+    
     if (isset($_REQUEST["mycheckbox"])){
+        echo "<br>Has elegit el check numero: ";
         print_r($_REQUEST["mycheckbox"])."<br>";
     }
     echo "<br>Has seleccinat: ".$_REQUEST["myselect"]."<br>";
