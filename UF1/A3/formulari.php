@@ -1,7 +1,7 @@
 <?php
 //min 1:18:20 https://www.youtube.com/watch?v=V6oUxZLWMzg&list=PLUznOARP_ddV78gyS28Rrgo8MjrCPI4Ea&index=7
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    print($_REQUEST["mycheckbox"]);
+    echo "Benbingut".$REQUEST[mytext]
     
 } else {
     ?>
