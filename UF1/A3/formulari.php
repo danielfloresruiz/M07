@@ -1,5 +1,4 @@
 <?php
-//min 1:18:20 https://www.youtube.com/watch?v=V6oUxZLWMzg&list=PLUznOARP_ddV78gyS28Rrgo8MjrCPI4Ea&index=7
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Has escrit: ".$_REQUEST["mytext"]."<br>";
     
@@ -17,8 +16,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "<br>Has seleccinat: ".$_REQUEST["myselect"]."<br>";
 
     echo "Has escti a la area de text: ".$_REQUEST["mytextarea"]."<br>";
+
+    $dir_subida = "imatges/";
+    $fichero_subido = $dir_subida.basename($_FILES["arxiu"]["name"]);
     
-    
+    if(move_uploaded_file($_FILES["arxiu"]["tmp_name"], $fichero_subido)){
+        echo "Mostra la imatge, <img src=\"".$fichero_subido."\"><br><br>";         //para enseñar la imagen
+        //echo "Mirar el arxiu, <a href=\"".$fichero_subido."\">link</a>";  //para mostrar un link que te encian a la pagina
+    }else {
+        echo "No has pujat cap arxiu";
+    }
+
     
 } else {
     ?>
@@ -55,9 +63,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             </optgroup>
         </select><br /><br />
     
-        <textarea name="mytextarea" id="" rows="3" cols="30">
-    Text area
-        </textarea> <br /><br />
+        <textarea name="mytextarea" id="" rows="3" cols="30">Text area</textarea> <br/><br/>
+
+        <label for="arx">Arxiu: </label><input type="file" name="arxiu" id=""><br/><br/>
     
         <button id="mysubmit" type="submit">Submit</button><br /><br />
     
