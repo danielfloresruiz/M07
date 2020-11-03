@@ -9,9 +9,14 @@ function test_input($data) {
     return $data;
 }
 
+
+include 'llib-compdades.php';
 //Vaig a mirar a la llibreria per veure si l'usuari ja està registrat, si ho està l'envio a la pàgina privada.
-include 'llib-compinices.php';
-comlogincookieinicial();
+if (isset($_SESSION["login"]) && $_SESSION["login"]){
+    header("location:privada.php");
+}else if (isset($_COOKIE["email"])){
+    dadesexistents($_COOKIE["email"],$_COOKIE["pass"],false);
+}
 
 
 //Entra si rep dades per post (després d'enviar els resultats del formulari)
@@ -19,19 +24,22 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     //Guardo les dades que l'usuari ha introduït a la seva respectiva variable
     $email = test_input($_REQUEST["myuser"]);
     $pass = test_input($_REQUEST["mypass"]);
+    if (isset($_REQUEST["mycheckbox"])){
+        $check = true;
+    }else{
+        $check = false;
+    }
 
     if(isset($_COOKIE['politica'])) {
-        //Utilitzo la funció de la llibreria per comprovar si les dades introduïdes són valides o incorrectes
-        include 'llib-compdades.php';
-        $erroremail = controlemail($email);
-        $errorpass = controlpass($pass);
+        //Utilitzo la funció de la llibreria per comprovar si les dades introduïdes són valides
+        
+        $errorintro = controlemail($email,$pass);
 
-        //Comprovo si l'usuari ha marcat el checkbox per mantenir iniciada la sessió i entro a la funció que l'usuari ha triat.
-        if (isset($_REQUEST["mycheckbox"])){
-            contrloginper($erroremail,$errorpass,$email,$pass);
-        }else{
-            contrlogin($erroremail,$errorpass);
+        //Provo si el compte existeix
+        if ( $errorintro == ""){
+            $dadaexisteix = dadesexistents($email,$pass,$check);
         }
+
     }else{
         echo "No has acceptat la politaica de cookies";
     }
@@ -50,10 +58,8 @@ if(isset($_REQUEST['denpolitica-cookies'])) {
 
 <html>
     <head>
-
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
         <title>Inicia sessio</title>
-        
     </head>
     <body>
         <div>
@@ -67,18 +73,32 @@ if(isset($_REQUEST['denpolitica-cookies'])) {
                 </div>
             <?php endif; ?>
         </div>
+        <div style="text-align: center; margin-top:200px;">
+            <form method="post" id="myform" name="myform" >
+                
+                <sapn class="error">
+                <?php
+                    if (isset($errorintro)){
+                        echo $errorintro; 
+                    }
+                    if (isset($dadaexisteix) && $errorintro == ""){
+                        echo $dadaexisteix;
+                    }    
+                    ?>
+                </span><br><br>
 
-        <form method="post" id="myform" name="myform" align="center">
 
-            <label>Email</label> <input type="text" size="30" name="myuser" value="<?php if ($_SERVER['REQUEST_METHOD']=='POST') echo $_REQUEST["myuser"] ?>" id=""/><sapn class="error"><? if (isset($erroremail)) echo $erroremail;?></span><br/><br/>
-            <label>Contrasenya</label> <input type="password" size="30" name="mypass" id=""/><sapn class="error"><? if (isset($errorpass))echo$errorpass;?></span><br/><br/>
-            <input type="checkbox" name="mycheckbox[]" value="1" /> Mantenir sessio oberta 
-            <button id="mysubmit" type="submit">Submit</button><br/><br/>
-            <a href="">Has olvidat la contrasenya?</a><br/><br/>
-            
-        </form>
-        <form method="post" id="myform" name="myform" action="./crea_usuari.php" align="center">
-            <input type="submit" value="Crea un compte"/> 
-        </form>
+                <label>Email</label> <input type="text" name="myuser" value="<?php if ($_SERVER['REQUEST_METHOD']=='POST') echo $_REQUEST["myuser"] ?>" id=""/><br><br>
+                <label>Contrasenya</label> <input type="password" name="mypass" id=""/><br/><br/>
+                <input type="checkbox" name="mycheckbox[]" value="1" /> Record em <br><br>
+                <button id="mysubmit" type="submit">Entrar</button><br/><br/>
+                <a href="">Has oblidat la contrasenya?</a><br/><br/>
+                
+            </form>
+            <hr>
+            <form id="myform" name="myform" action="./crea_usuari.php" align="center">
+                <input type="submit" value="Crea un compte"/> 
+            </form>
+        </div>
     </body>
 </html>
