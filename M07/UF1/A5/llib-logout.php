@@ -4,7 +4,7 @@ function logout(){
     setcookie("pass", "", time() + 365 * 24 * 60 * 60);
     session_destroy();
     session_unset();
-    header("location:inicial.php");
+    header("location:index.php");
 }
 
 ?>

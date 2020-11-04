@@ -9,7 +9,7 @@
     }else if (isset($_COOKIE["email"])){
         dadesexistents($_COOKIE["email"],$_COOKIE["pass"],false);
     }else {
-        header("location:inicial.php");
+        header("location:index.php");
     }
 
 
@@ -52,6 +52,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css.css" rel="stylesheet" type="text/css">
         <title>Pagina</title>
     </head>
     <body>
@@ -66,15 +67,23 @@
                 </div>
             <?php endif; ?>
         </div>
-        <div style="text-align: center; margin-top:200px;">
-        <h1>Has iniciat sesio</h1>
+
+
+        <div class="content-form">
+        <h1 class="tituloclase">Has iniciat sesio</h1>
         <form id="myform" name="myform">
-            <button name="logout" type="submit">Log Out</button>
-            <button name="edituser" type="submit">Editar Usuari</button>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <button class="button2" name="logout" type="submit">Log Out</button>
+                </div>
+                <div class="flex-item">
+                    <button class="button2" name="edituser" type="submit">Editar Usuari</button><br><br>
+                </div>
+            </div>
             <?php
                 if ($adminuser["Rol"]=="admin"){
             ?>
-                    <button name="adinedit" type="submit">Editar Usuaris Admin</button>
+                    <button class="button1" name="adinedit" type="submit">Editar Usuaris Admin</button><br><br>
             <?php
                 }
             ?>

@@ -59,6 +59,7 @@ if(isset($_REQUEST['denpolitica-cookies'])) {
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+        <link href="css.css" rel="stylesheet" type="text/css">
         <title>Inicia sessio</title>
     </head>
     <body>
@@ -73,10 +74,10 @@ if(isset($_REQUEST['denpolitica-cookies'])) {
                 </div>
             <?php endif; ?>
         </div>
-        <div style="text-align: center; margin-top:200px;">
+        <div class="content-form">
             <form method="post" id="myform" name="myform" >
-                
-                <sapn class="error">
+                <h1 class="tituloclase">Inicia sessió</h1>
+                <div class="error">
                 <?php
                     if (isset($errorintro)){
                         echo $errorintro; 
@@ -85,19 +86,21 @@ if(isset($_REQUEST['denpolitica-cookies'])) {
                         echo $dadaexisteix;
                     }    
                     ?>
-                </span><br><br>
+                </div><br>
 
 
-                <label>Email</label> <input type="text" name="myuser" value="<?php if ($_SERVER['REQUEST_METHOD']=='POST') echo $_REQUEST["myuser"] ?>" id=""/><br><br>
-                <label>Contrasenya</label> <input type="password" name="mypass" id=""/><br/><br/>
-                <input type="checkbox" name="mycheckbox[]" value="1" /> Record em <br><br>
-                <button id="mysubmit" type="submit">Entrar</button><br/><br/>
-                <a href="">Has oblidat la contrasenya?</a><br/><br/>
+                <label>Email</label><br><input class="input" type="text" name="myuser" value="<?php if ($_SERVER['REQUEST_METHOD']=='POST') echo $_REQUEST["myuser"] ?>" id=""/><br><br>
+                <label>Contrasenya</label><br><input class="input" type="password" name="mypass" id=""/><br/><br/>
+                <button class="button1" id="mysubmit" type="submit">INICIA SESIO</button><br/><br/>
+                <div class="sessionoptions">
+                    <input type="checkbox" name="mycheckbox[]" value="1" /><label>Record em</label>
+                    <a href="./emailrecpass.php" class="olvidapass" >He oblidat la contrasenya</a>
+                </div>
                 
             </form>
             <hr>
             <form id="myform" name="myform" action="./crea_usuari.php" align="center">
-                <input type="submit" value="Crea un compte"/> 
+                <br><input class="inputsubmit1" type="submit" value="Crea un compte"/> <br><br>
             </form>
         </div>
     </body>

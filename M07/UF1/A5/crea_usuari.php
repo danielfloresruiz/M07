@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
 
     if ($error == ""){
         $creausuariav = creausuari($nom,$email,$pass);
+        header("location:index.php");
     }
 }
 
@@ -41,14 +42,15 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css.css" rel="stylesheet" type="text/css">
     <title>Crea Usuari</title>
 </head>
-<body align="center">
-    <div style="text-align: center; margin-top:200px;">
+<body>
+    <div class="content-form">
 
-    <h1>Crea usuari</h1>
+    <h1 class="tituloclase">Crea usuari</h1>
 
-    <sapn class="error">
+    <div class="error">
         <?php
             if (isset($error)){
                 echo $error; 
@@ -57,24 +59,24 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
                 echo $creausuariav;
             }    
         ?>
-    </span><br><br>
+    </div><br>
 
 
 
 
-    <form method="post" id="myform" name="myform" align="center">
-        <label>Nom</label> <input type="text" size="30" name="mynom" value="<?php if ($_SERVER['REQUEST_METHOD']=='POST') echo $_REQUEST["mynom"] ?>"/><br/><br/>
+    <form method="post" id="myform" name="myform">
+        <label>Nom</label><br><input class="input" type="text" name="mynom" value="<?php if ($_SERVER['REQUEST_METHOD']=='POST') echo $_REQUEST["mynom"] ?>"/><br/><br/>
         
-        <label>Email</label> <input type="text" size="30" name="myemail" value="<?php if ($_SERVER['REQUEST_METHOD']=='POST') echo $_REQUEST["myemail"] ?>"/><br/><br/>
+        <label>Email</label><br><input class="input" type="text" name="myemail" value="<?php if ($_SERVER['REQUEST_METHOD']=='POST') echo $_REQUEST["myemail"] ?>"/><br/><br/>
 
-        <label>Password</label> <input type="password" size="30" name="mypass"/><br/><br/>
-        <label>Confirma Password</label> <input type="password" size="30" name="mypass2"/><br/><br/>
+        <label>Password</label><br><input class="input" type="password" name="mypass"/><br/><br/>
+        <label>Confirma Password</label><br><input class="input" type="password" name="mypass2"/><br/><br/>
 
-        <button id="mysubmit" type="submit">Submit</button><br/><br/>
+        <button class="button1" id="mysubmit" type="submit">Submit</button><br/><br/>
     </form>
     <hr>
-    <form id="myform" name="myform" action="./inicial.php" align="center">
-        <input type="submit" value="Inicia sesio"/> 
+    <form id="myform" name="myform" action="./index.php" align="center">
+        <br><input class="inputsubmit1" type="submit" value="Inicia sesio"/><br><br>
     </form>
     </div>
 </body>

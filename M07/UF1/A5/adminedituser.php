@@ -10,16 +10,13 @@
     }else if (isset($_COOKIE["email"])){
         dadesexistents($_COOKIE["email"],$_COOKIE["pass"],false);
     }else {
-        header("location:inicial.php");
+        header("location:index.php");
     }
     $adminuser = TreureDades($_SESSION["userid"]);
     if ($adminuser["Rol"] != "admin"){
-        header("location:inicial.php");
+        header("location:index.php");
     }
 
-    if (isset($_REQUEST["back"])){
-        header("location:inicial.php");
-    }
 
 ?>
 
@@ -29,11 +26,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css.css" rel="stylesheet" type="text/css">
     <title>Edit Users Admin</title>
 </head>
 <body>
-    <div style="text-align: center; margin-top:200px;">
-        <h1>Users</h1>
+    <div class="content-table">
+        <h1 class="tituloclase">Users</h1>
         <?php
             $mysqli = new mysqli('localhost', 'dflores', 'dflores', 'dflores_a5');
             if ($mysqli->connect_error) {
@@ -59,7 +57,7 @@
                             echo "<th style='width:70px;'>";
                                 echo "Rol";
                             echo "</th>";
-                            echo "<th style='width:70px;'>";
+                            echo "<th>";
                                 echo "Editar";
                             echo "</th>";
                             echo "<th>";
@@ -91,7 +89,7 @@
                                     if ($users["ID"] != $_SESSION["userid"]){
                                         echo '<button name="deluser" type="submit">Borrar</button>';
                                     }else{
-                                        echo "-----";
+                                        echo "-------";
                                     }
                                     
                                 echo "</th>";
@@ -103,8 +101,9 @@
         
             $mysqli->close();
         ?>
-        <form>
-            <br><br><button name="back" type="submit">Atras</button>
+        <br><hr>
+        <form id="myform" name="myform" action="privada.php" align="center">
+            <br><input class="inputsubmit1-1" name="back" type="submit" value="Atras"><br><br>
         </form>
     </div>
 </body>

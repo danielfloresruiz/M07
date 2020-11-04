@@ -11,7 +11,11 @@ session_start();
     }else if (isset($_COOKIE["email"])){
         dadesexistents($_COOKIE["email"],$_COOKIE["pass"],false);
     }else {
-        header("location:inicial.php");
+        header("location:index.php");
+    }
+    $adminuser = TreureDades($_SESSION["userid"]);
+    if ($adminuser["Rol"] != "admin"){
+        header("location:index.php");
     }
 
 
@@ -36,18 +40,25 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css.css" rel="stylesheet" type="text/css">
     <title>Borrar Usuario</title>
 </head>
 <body>
-    <div style="text-align: center; margin-top:200px;">
-        <h1>Delete user</h1>
-        <h4>Seguro que desea borrar el usuario <?= $olduser["Nom"] ?>?</h4>
+    <div class="content-form">
+        <h1 class="tituloclase">Delete user</h1>
+        <h4 class="deluserh4">Seguro que desea borrar el usuario <span class="delusernom"><?= $olduser["Nom"] ?></span>?</h4>
         <form>
             <?
             echo '<input name="ID" type="hidden" value='.$olduser["ID"].'>';
             ?>
-            <button name="cancel" type="submit">Cancelar</button>
-            <button name="accept" type="submit">Borrar</button>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <button class="button2" name="cancel" type="submit">Cancelar</button>
+                </div>
+                <div class="flex-item">
+                    <button class="button2" name="accept" type="submit">Borrar</button>
+                </div>
+            </div><br>
         </form>
     </div>
 </body>

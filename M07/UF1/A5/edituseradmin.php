@@ -11,7 +11,11 @@ session_start();
     }else if (isset($_COOKIE["email"])){
         dadesexistents($_COOKIE["email"],$_COOKIE["pass"],false);
     }else {
-        header("location:inicial.php");
+        header("location:index.php");
+    }
+    $adminuser = TreureDades($_SESSION["userid"]);
+    if ($adminuser["Rol"] != "admin"){
+        header("location:index.php");
     }
 
 
@@ -48,12 +52,15 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css.css" rel="stylesheet" type="text/css">
         <title>Edita usuari</title>
     </head>
 <body>
-    <div style="text-align: center; margin-top:200px;">
+    <div class="content-form">
 
-        <sapn class="error">
+        <h1 class="tituloclase">Edita usuari</h1>
+
+        <div class="error">
             <?php
                 if (isset($error)){
                     echo $error; 
@@ -62,28 +69,29 @@ session_start();
                     //echo $creausuariav;
                 }    
             ?>
-        </span><br><br>
+        </div><br>
 
-        <form method="post" id="myform" name="myform" align="center">
-            <label>ID</label> <input type="text" size="10" name="ID" value="<?php echo $olduser["ID"]; ?>" readonly/><br/><br/>
-            <label>Nom</label> <input type="text" size="30" name="mynom" value="<?php echo $olduser["Nom"]; ?>"/><br/><br/>
-            <label>Email</label> <input type="text" size="30" name="myemail" value="<?php echo $olduser["Email"]; ?>"/><br/><br/>
-            <label>Password</label> <input type="password" size="30" name="mypass" placeholder="Res per no cambiar"/><br><br>
-            <label>Repite Password</label> <input type="password" size="30" name="mypass2"/><br/><br/>
+        <form method="post" id="myform" name="myform">
+            <label>ID</label><br><input class="input" type="text" name="ID" value="<?php echo $olduser["ID"]; ?>" readonly/><br/><br/>
+            <label>Nom</label><br><input class="input" type="text" name="mynom" value="<?php echo $olduser["Nom"]; ?>"/><br/><br/>
+            <label>Email</label><br><input class="input" type="text" name="myemail" value="<?php echo $olduser["Email"]; ?>"/><br/><br/>
+            <label>Password</label><br><input class="input" type="password" name="mypass" placeholder="Res per no cambiar"/><br><br>
+            <label>Repite Password</label><br><input class="input" type="password" name="mypass2"/><br/><br/>
             <?php
                 if ($olduser["Rol"] == "admin"){
-                    echo '<select name="rol"><option value="admin">Admin<option value="user">User</option>';
+            
+                    echo '<select class="select" name="rol"><option value="admin">Admin<option value="user">User</option></select>';
                 }else{
-                    echo '<select name="rol"><option value="user">User<option value="admin">Admin</option>';
+                    echo '<select class="select" name="rol"><option value="user">User<option value="admin">Admin</option></select>';
                 }
             ?>
             <br><br>
 
-            <input id="mysubmit" type="submit" value="Submit"><br/><br/>
+            <button class="button1" id="mysubmit" type="submit">Submit</button><br/><br/>
         </form>
         <hr>
         <form id="myform" name="myform" action="./adminedituser.php" align="center">
-            <input type="submit" value="Cancela"/> 
+            <br><input class="inputsubmit1" type="submit" value="Cancela"/><br><br>
         </form> 
     </div>
 </body>

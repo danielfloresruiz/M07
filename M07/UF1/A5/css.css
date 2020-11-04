@@ -1,0 +1,101 @@
+body{
+    background-color: rgb(179, 179, 179);
+}
+
+h1.tituloclase{
+    padding-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+div.content-form{
+    background-color: white;
+    display: block;
+    margin: auto auto;
+    margin-top: 200px;
+    width: 350px;
+    padding: 0px 50px 0px 50px;
+    border-radius: 10px;
+}
+
+input.input, select.select{
+    width: 350px;
+    height: 30px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+select.select{
+    width: 80px;
+    margin: 0 135px;
+}
+
+button.button1{
+    width: 350px;
+    height: 40px;
+    background-color: darkturquoise;
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+input.inputsubmit1, input.inputsubmit1-1{
+    width: 175px;
+    height: 40px;
+    background-color: rgb(111, 223, 0);
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+input.inputsubmit1-1{
+    margin: 0 217px;
+}
+
+button.button2{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(111, 223, 0);
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+div.error{
+    color: red;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+div.sessionoptions>a.olvidapass{
+    margin-left: 93px;
+    color: darkturquoise;
+    text-decoration: none;
+}
+
+div.flex-container{
+    display: -webkit-flex;
+    display: flex;
+    width: 350px;
+    justify-content: space-around;
+}
+
+
+div.content-table{
+    background-color: white;
+    display: block;
+    margin: auto auto;
+    margin-top: 200px;
+    width: 610px;
+    padding: 0px 50px 0px 50px;
+    border-radius: 10px;
+}
+
+h4.deluserh4{
+    text-align: center;
+}
+
+span.delusernom{
+    color: red;
+    text-transform: uppercase;
+}
