@@ -25,6 +25,10 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             <label>Introduzca su correo: </label><br><input class="input" type="text" name="mynom"/><br/><br/>
             <button class="button1" id="mysubmit" type="submit">Enviar</button><br/><br/>
         </form>
+        <hr>
+        <form action="index.php" align="center">
+            <br><input class="inputsubmit1" id="mysubmit" type="submit" value="Cancelar"><br/><br/>
+        </form>
     </div>
 </body>
 </html>

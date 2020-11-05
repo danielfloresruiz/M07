@@ -102,7 +102,7 @@
             $mysqli->close();
         ?>
         <br><hr>
-        <form id="myform" name="myform" action="privada.php" align="center">
+        <form id="myform" name="myform" method="post" action="privada.php" align="center">
             <br><input class="inputsubmit1-1" name="back" type="submit" value="Atras"><br><br>
         </form>
     </div>
