@@ -1,7 +1,7 @@
 <?php
 
 
-function controlprod($nom,$desc,$preu,$img){
+function controlprod($nom,$desc,$preu,$img,$categoria){
     $error = "";
     if (empty($nom)){
         $error = "El nom es obligatori";
@@ -19,13 +19,16 @@ function controlprod($nom,$desc,$preu,$img){
     else if ($img == 'images/'){
         $error = "La imatge es obligatoria";
     }
+    else if ($categoria == null){
+        $error = "Marca una categoria";
+    }
     return $error;
 }
 
 
 
 
-function creaproducte($nom,$desc,$preu,$img){
+function creaproducte($nom,$desc,$preu,$img,$categoria){
 
     $mysqli = new mysqli('localhost', 'dflores', 'dflores', 'dflores_a5');
 
@@ -46,6 +49,14 @@ function creaproducte($nom,$desc,$preu,$img){
     try {
         $mysqli -> query("INSERT INTO imatges (nom, ruta , id_producte) VALUES ('$img', '$img', '$prod_id')");
     } catch (mysqli_sql_exception $e){
+        echo "error +  $e";
+    }
+
+    try {
+        foreach ($categoria as &$valor){
+            $mysqli -> query("INSERT INTO producte_categoria (id_producte, id_categoria) VALUES ('$prod_id', '$valor')");
+        }
+    }   catch (mysqli_sql_exception $e){
         echo "error +  $e";
     }
 

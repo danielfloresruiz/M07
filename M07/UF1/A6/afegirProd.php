@@ -24,17 +24,24 @@
         $nom = test_input($_REQUEST["prodnom"]);
         $desc = test_input($_REQUEST["proddesc"]);
         $preu = test_input($_REQUEST["prodpreu"]);
-        
+        if (isset($_REQUEST["mycheckbox"])){
+            $categoria = $_REQUEST["mycheckbox"];
+            echo count($categoria);
+            echo $categoria[0];
+        }else{
+            $categoria = null;
+        }
+
         $dir_subida = "images/";
         $img = $dir_subida.basename($_FILES["prodimg"]["name"]);
         if (move_uploaded_file($_FILES['prodimg']['tmp_name'], $img)) {}
 
 
         include "llib-creaProducte.php";
-        $error = controlprod($nom,$desc,$preu,$img);
+        $error = controlprod($nom,$desc,$preu,$img,$categoria);
     
         if ($error == ""){
-            creaproducte($nom,$desc,$preu,$img);
+            creaproducte($nom,$desc,$preu,$img,$categoria);
             header("location:adminProd.php");
         }
     }
@@ -71,7 +78,16 @@
             <label>Preu</label><br><input class="input" type="text" name="prodpreu" value="<?php if ($_SERVER['REQUEST_METHOD']=='POST') echo $_REQUEST["prodpreu"] ?>"/><br/><br/>
             <label>Imatge</label><br><input type="file" name="prodimg" id=""><br/><br/>
 
+            <label>Categories</label><br>
+
+            <input type="checkbox" name="mycheckbox[]" value="1" /> Deportes<br> <!-- checked="checked" -->
+            <input type="checkbox" name="mycheckbox[]" value="2" /> Anime<br>
+            <input type="checkbox" name="mycheckbox[]" value="3" /> Cocina<br>
+            <input type="checkbox" name="mycheckbox[]" value="4" /> Lectura<br>
+            <input type="checkbox" name="mycheckbox[]" value="5" /> Otros<br><br>
+
             <button class="button1" id="mysubmit" type="submit">Submit</button><br/><br/>
+
         </form>
         <hr>
         <form id="myform" name="myform" action="./adminProd.php" align="center">
