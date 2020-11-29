@@ -1,7 +1,6 @@
 <?php 
     session_start();
-    include 'llib-logout.php';
-    include 'llib-compdades.php';
+    include 'funciones.php';
 
     
     if ((isset($_SESSION["login"]) && $_SESSION["login"])){
@@ -20,7 +19,6 @@
 
 
     //sacar todos los datos del usuario
-    include 'llib-edit-user.php';
     $adminuser = TreureDades($_SESSION["userid"]);
     if (isset($_REQUEST["adinedit"])){
         header("location:adminedituser.php");
@@ -34,7 +32,6 @@
         header("location:adminProd.php");
     }
     if (isset($_REQUEST["addProdCartButton"])){
-        include 'llib-carret.php';
         addCart($_REQUEST["idProd"]);
     }
 

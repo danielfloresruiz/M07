@@ -1,16 +1,10 @@
 <?php
 session_start();
+include 'funciones.php';
 
-//Funció per validar les dades que entren pel formulari
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
 
 //Vaig a mirar a la llibreria per veure si l'usuari ja està registrat, si ho està l'envio a la pàgina privada.
-include 'llib-compdades.php';
+
 if (isset($_SESSION["login"]) && $_SESSION["login"]){
     header("location:privada.php");
 }else if (isset($_COOKIE["email"])){
@@ -23,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     $pass = test_input($_REQUEST["mypass"]);
     $pass2 = test_input($_REQUEST["mypass2"]);
     
-    include "lib-CreaUsuari.php";
     $error = control($nom,$email,$pass,$pass2);
 
     if ($error == ""){

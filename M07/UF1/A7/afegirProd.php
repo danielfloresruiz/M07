@@ -1,7 +1,6 @@
 <?php
     session_start();
-    include 'llib-logout.php';
-    include 'llib-compdades.php';
+    include 'funciones.php';
 
     
     if ((isset($_SESSION["login"]) && $_SESSION["login"])){
@@ -12,13 +11,6 @@
         header("location:index.php");
     }
 
-    //Funció per validar les dades que entren pel formulari
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
 
     if ($_SERVER['REQUEST_METHOD']=='POST'){
         $nom = test_input($_REQUEST["prodnom"]);
@@ -37,7 +29,6 @@
         if (move_uploaded_file($_FILES['prodimg']['tmp_name'], $img)) {}
 
 
-        include "llib-creaProducte.php";
         $error = controlprod($nom,$desc,$preu,$img,$categoria);
     
         if ($error == ""){

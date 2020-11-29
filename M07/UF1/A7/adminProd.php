@@ -1,7 +1,6 @@
 <?php
     session_start();
-    include 'llib-logout.php';
-    include 'llib-compdades.php';
+    include 'funciones.php';
 
     
     if ((isset($_SESSION["login"]) && $_SESSION["login"])){

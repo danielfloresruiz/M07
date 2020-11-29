@@ -1,13 +1,7 @@
 <?php
 session_start();
 
-//Funció per validar les dades que entren pel formulari
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+
 
 
 include 'llib-compdades.php';

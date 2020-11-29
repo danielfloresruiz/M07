@@ -1,7 +1,6 @@
 <?php
     session_start();
-    include 'llib-compdades.php';
-    include 'llib-edit-user.php';
+    include 'funciones.php';
 
 
 

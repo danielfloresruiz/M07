@@ -1,16 +1,8 @@
 <?php
 session_start();
-
-//Funció per validar les dades que entren pel formulari
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+include 'funciones.php';
 
 
-include 'llib-compdades.php';
 //Vaig a mirar a la llibreria per veure si l'usuari ja està registrat, si ho està l'envio a la pàgina privada.
 if (isset($_SESSION["login"]) && $_SESSION["login"]){
     header("location:privada.php");

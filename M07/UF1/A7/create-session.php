@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'stripe/init.php';
+include 'funciones.php';
 
 \Stripe\Stripe::setApiKey('sk_test_51HotTBFXhO5sy2LGwx608HBR7nDsQZWnVMmOTbue9zKYE3a8UdOxkUnrqk4GcLmLkbScZhSCWmgZGTpCBXNJ1tFD00wXMt6RGe');
 header('Content-Type: application/json');
