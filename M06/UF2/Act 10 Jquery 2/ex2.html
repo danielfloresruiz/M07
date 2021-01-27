@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Exercici 2 Daniel Flores</title>
+    <style>
+        .border{
+            border: solid 1px black;
+        }
+        .date{
+            width: 105px;
+        }
+        .event{
+            width: 248px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Agenda</h1>
+    <div id='addBlockDiv'>
+        <table class="addBlock border">
+            <tr>
+                <td class="date border">
+                    <input type="text" class="inputDate" size="10" placeholder="Date">
+                </td>
+                <td class="event border">
+                    <input type="text" class="inputEvent" size="30" placeholder="Event">
+                </td>
+                <td class="border">
+                    <button class="buttonAdd">ADD</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id='scheduleDiv'>
+        <table class="viewBlock border" style="margin-top: 20px;">
+            <tr>
+                <td class="date border">
+                    18-12-2020
+                </td>
+                <td class="event border">
+                    Entregar activitat
+                </td>
+                <td class="border">
+                    <button class="buttonDel">DEL</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <script src="ex2.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Exercici 8 Daniel Flores</title>
+    <style>
+        .item{
+            border: 1px solid black;
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+            margin-left: -25px;
+            list-style-type: none;
+        }
+
+        .containerList{
+            width: 350px;
+            margin: 0 auto;
+        }
+        
+        #sortable1, #sortable2{
+            width: 110px;
+            border: 1px solid black;
+            min-height: 40px;
+            margin: 10px;
+        }
+
+        #sortable1{
+            float: left;
+        }
+
+        #sortable2{
+            float: right;
+        }
+
+        .titleList{
+            border: 1px dotted black;
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+            margin-left: -25px;
+            list-style-type: none;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="containerList">
+        
+        <ul id="sortable1" class="connectedSortable">
+            <li class="titleList">Llista</li>
+            <li class="item">Item 1</li>
+            <li class="item">Item 2</li>
+            <li class="item">Item 3</li>
+            <li class="item">Item 4</li>
+            <li class="item">Item 5</li>
+        </ul>
+        
+        <ul id="sortable2" class="connectedSortable">
+            <li class="titleList">Cistella</li>
+        </ul>
+    </div>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="ex8.js"></script>
+</body>
+</html>
+    
