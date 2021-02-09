@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Daniel Flores 6</title>
+    <style>
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<body> 
+    <label>Nom: </label>
+    <input type="text" name="nom" id="nom"/><label id="errorNom" class="error">*</label><br>
+
+    <label>Edat: </label>
+    <input type="text" name="age" id="age"/><label id="errorAge" class="error">*</label><br>
+
+    <label>E-mail: </label>
+    <input type="text" name="mail" id="mail"/><label id="errorMail" class="error">*</label><br>
+
+    <label>Com ens has trobat?: </label>
+    <select name="prov" id="prov">
+        <option value=""></option>
+        <option value="internet">Bucan per internet</option>
+        <option value="amics">Un amic</option>
+        <option value="xs">Xarxes Socilas</option>
+        <option value="altres">altres</option>
+    </select><br>
+
+    <label>Comentaris: </label>
+    <textarea name="textArea" id="textArea" cols="30" rows="5"></textarea><label id="errorTextArea" class="error">*</label><br>
+
+    <input type="submit" value="Enviar" id="submit">
+    <input type="submit" value="Borrar camps" id="delCamps">
+
+    <script src="ex6.js"></script>
+</body>
+</html>

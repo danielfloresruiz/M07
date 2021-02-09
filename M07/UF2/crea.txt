@@ -1,0 +1,24 @@
+composer create-project laravel/laravel UF2-A4
+
+cd UF2-A4
+
+php artisan serve
+
+chmod 777 storage/logs/
+chmod 777 storege/framework/sessions/
+chmod 777 storage/framework/views/
+
+nano .env{
+	APP_URL=(link carpeta public)
+	
+	DB_DATABASE=(nom data base)
+	DB_USERNAME=dflores
+	DB_PASSWORD=dflores
+
+php artisan migrate
+
+composer require laravel/breeze --dev
+php artisan breeze:install
+npm install && npm run dev
+
+php artisan make:controller nom-Controlador

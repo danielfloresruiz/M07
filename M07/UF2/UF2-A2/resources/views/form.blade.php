@@ -22,7 +22,7 @@
     </head>
     <body class="antialiased">
         <div style="margin: 0 auto; width: 500px; margin-top: 100px">
-        <form action="{{ route('test')}}" method="post">
+        <form enctype="multipart/form-data" action="{{ url('goOk')}}" method="post">
             @csrf
             <label form="nombre">Correu:</label> 
             <input name="email" type="text">

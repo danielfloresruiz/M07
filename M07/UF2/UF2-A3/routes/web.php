@@ -24,10 +24,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('llistarLlibres', [Llibres::class, 'index'])->name("llistarLlibres");
+Route::get('llistarLlibres', [Llibres::class, 'index'])->name("llistarLlibres")->middleware(['auth']);
 
-Route::get('formAddLlibre', [Llibres::class, 'create']);
-Route::post('storeLlibre', [Llibres::class, 'store']);
-Route::get('deleteLlibre/{id}', [Llibres::class, 'delete']);
-Route::get('editLlibre/{id}', [Llibres::class, 'edit']);
-Route::post('updateLlibre', [Llibres::class, 'update']);
+Route::get('formAddLlibre', [Llibres::class, 'create'])->middleware(['auth']);
+Route::post('storeLlibre', [Llibres::class, 'store'])->middleware(['auth']);
+Route::get('deleteLlibre/{id}', [Llibres::class, 'delete'])->middleware(['auth']);
+Route::get('editLlibre/{id}', [Llibres::class, 'edit'])->middleware(['auth']);
+Route::post('updateLlibre', [Llibres::class, 'update'])->middleware(['auth']);

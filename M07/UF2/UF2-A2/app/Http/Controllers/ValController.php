@@ -18,7 +18,7 @@ class ValController extends Controller
             'image' => 'required|dimensions:min_width=1920,min_height:1080',
         ]);
 
-        $data["return"]=$request->input("email");
+        $data["return"]=$request;
 
         return view("ok",$data);
     }

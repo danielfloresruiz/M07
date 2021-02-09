@@ -23,6 +23,13 @@
     <body class="antialiased">
         <center>
             <h3 style="color: red">Tot be</h3>
+
+            email: {{$return->email}}<br>
+            nif: {{$return->nif}}<br>
+            fitxer: {{$return->file}}<br>
+            img: {{$return->image}}<br>
+
+
         </center>
     </body>
 </html>

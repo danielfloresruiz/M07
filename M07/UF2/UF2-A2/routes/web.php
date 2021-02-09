@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ValController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,5 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('goForm', [ValController::class, 'goForm']);
+Route::get('goForm', [ValController::class, 'goForm'])->middleware(['auth']);
+Route::post('goOk', [ValController::class, 'testForm'])->middleware(['auth']);
