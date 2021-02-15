@@ -6,37 +6,37 @@ $('document').ready(function(){
     var exprArea2 = /(bobo)|(tonto)/
 
     $('#submit').click(function() {
-
         
+
         var nom = $('#nom').val()
         var age = $('#age').val();
         var mail = $('#mail').val();
         var textArea = $('#textArea').val();
 
         if (nom == "" || !exprNom.test(nom)){
-            $('#errorNom').fadeIn(10)
+            $('#errorNom').show();
         }else{
-            $('#errorNom').fadeOut(10)
+            $('#errorNom').hide();
         }
 
         if (age == "" || exprAge.test(age)){
-            $('#errorAge').fadeIn(10)
+            $('#errorAge').show()
         }else{
-            $('#errorAge').fadeOut(10)
+            $('#errorAge').hide()
         }
 
         if (mail == "" || !exprMail.test(mail)){
-            $('#errorMail').fadeIn(10)
+            $('#errorMail').show()
         }else{
-            $('#errorMail').fadeOut(10)
+            $('#errorMail').hide()
         }
 
         if (textArea == "" || !exprArea.test(textArea)){
-            $('#errorTextArea').fadeIn(10)
+            $('#errorTextArea').show()
         }else if (textArea == "" || exprArea2.test(textArea)){
-            $('#errorTextArea').fadeIn(10)
+            $('#errorTextArea').show()
         }else{
-            $('#errorTextArea').fadeOut(10)
+            $('#errorTextArea').hide()
         }
     });
 
