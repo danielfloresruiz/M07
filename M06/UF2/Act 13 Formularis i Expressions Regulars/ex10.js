@@ -1,8 +1,8 @@
 $('document').ready(function(){
 
-    var exprNom = /^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$/
-    var exprMac = /^([\w]{2}me cago en todo no me funciona me quiero morir \-){4}$/
-    var exprIp = /^http[s]?:\/\/[\w]+([\.]+[\w]+)+$/
+    var exprNom = /^[A-Za-z]{1}(\w|\_|[-]){3,9}$/
+    var exprMac = /^([\w]{2}([-]|[:])){3}([\w]{2})$/
+    var exprIp = /^((\d){1,3}\.){3}((\d){1,3})$/
     
 
     $('#submit').click(function() {

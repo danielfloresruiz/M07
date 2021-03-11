@@ -4,9 +4,9 @@ cd UF2-A4
 
 php artisan serve
 
-chmod 777 storage/logs/
-chmod 777 storege/framework/sessions/
-chmod 777 storage/framework/views/
+chmod 777 -R storage/logs/
+chmod 777 -R storege/framework/sessions/
+chmod 777 -R storage/framework/views/
 
 nano .env{
 	APP_URL=(link carpeta public)

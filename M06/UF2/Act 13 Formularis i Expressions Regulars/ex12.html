@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Daniel Flores 12</title>
+    <style>
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <label>First name:</label>
+    <input id="name" type="text">
+    <label id="errorName" class="error">Please enter your firs name</label><br>
+
+    <label>Last name:</label>
+    <input id="lName" type="text">
+    <label id="errorLName" class="error">Please enter your last name</label><br>
+
+    <label>Username:</label>
+    <input id="username" type="text">
+    <label id="errorUName" class="error">Please enter your username</label><br>
+
+    <label>Password:</label>
+    <input id="pass" type="text">
+    <label id="errorPass" class="error">Please provide a password</label><br>
+
+    <label>Confirm password:</label>
+    <input id="pass2" type="text">
+    <label id="errorPass2" class="error">Please provide a password</label><br>
+
+    <label>Email:</label>
+    <input id="mail" type="text">
+    <label id="errorMail" class="error">This file is requiled</label><br>
+
+    <label>Please agree to our policy:</label>
+    <input id="policy" type="checkbox">
+    <label id="errorPolicy" class="error">Please accept our policy</label><br>
+
+    <label>I'd like to receitive the newsletter:</label>
+    <input id="newletter" type="checkbox"><br>
+
+    <div id="newletterDiv">
+        <p>Topics (select at least two)</p>
+
+        <input type="checkbox" id="newletter1" name="newletter1" value="MarketFlash">
+        <label for="newletter1"> Marketflash</label><br>
+        <input type="checkbox" id="newletter2" name="newletter2" value="Fuzz">
+        <label for="newletter2"> Latest fuzz</label><br>
+        <input type="checkbox" id="newletter13" name="newletter13" value="digester">
+        <label for="newletter13"> Mailing list digester</label><br>
+    </div>
+
+    <input type="submit" value="Avaluar" id="submit"><br>
+    
+    <script src="ex12.js"></script>
+</body>
+</html>
