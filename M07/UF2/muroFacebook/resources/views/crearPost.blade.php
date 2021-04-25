@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Post</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script id="functions" user-id="{{ $user_id }}" src="{{ asset('js/funcionsWhispering.js') }}" defer></script>
 </head>
 <body>
     Crea el post el usuari: {{$user_id}}
@@ -21,7 +24,7 @@
             <option value="0">All</option>
 
             @foreach ($users as $user)
-                    <option value="{{$user->id}}">{{$user->name}}</option>
+                <option value="{{$user->id}}">{{$user->name}}</option>
             @endforeach
 
         </select>

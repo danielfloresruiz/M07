@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateMascotaRequest;
 use App\Repositories\MascotaRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Mascotas;
 use Flash;
 use Response;
 

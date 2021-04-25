@@ -21,3 +21,8 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('user.{toUserId}', function ($user, $toUserId) {
     return $user->id == $toUserId;
 });
+
+
+Broadcast::channel('muro', function ($user) {
+    return Auth::check();
+});

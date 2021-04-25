@@ -27,5 +27,7 @@ require __DIR__.'/auth.php';
 Route::get('home', [HomeController::class, 'index'])->name("home");
 //Route::get('post/send', [HomeController::class, 'send']);
 
-Route::get('crearPost', [HomeController::class, 'crearPostRoute'])->name("crearPost");
-Route::post('okPost', [HomeController::class, 'addDataBasePost']);
+Route::get('crearPost', [HomeController::class, 'crearPostRoute'])->name("crearPost")->middleware(['auth']);
+Route::post('okPost', [HomeController::class, 'addDataBasePost'])->middleware(['auth']);
+
+Route::get('likePost/{idPost}', [HomeController::class, 'likePost'])->middleware(['auth']);

@@ -26,3 +26,8 @@ require __DIR__.'/auth.php';
 
 Route::get('goForm', [ValController::class, 'goForm'])->middleware(['auth']);
 Route::post('goOk', [ValController::class, 'testForm'])->middleware(['auth']);
+
+Route::get('edicio', [ValController::class, 'editUser'])->middleware(['auth']);
+Route::post('cangeUser', [ValController::class, 'ChangeUser'])->middleware(['auth']);
+
+

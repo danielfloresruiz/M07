@@ -35,6 +35,6 @@ class NewWhisperingNotification implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('user.'.$this->post->to);
+        return new PrivateChannel('muro');
     }
 }

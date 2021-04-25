@@ -8,6 +8,7 @@ use App\Events\NewPostNotification;
 use App\Events\NewWhisperingNotification;
 use App\Models\Post;
 use App\Models\UsersList;
+use App\Models\LikePost;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
         $postTime = post::all();
         $postTime = $postTime->reverse();
         $data['posts']= $postTime;
+        $data["usersList"] = UsersList::all();
         return view('home',$data);
     }
 
@@ -33,17 +35,57 @@ class HomeController extends Controller
     }
 
     public function addDataBasePost(Request $request){
+        //dd("error");
         $post = new Post;
         $post->setAttribute('author', Auth::user()->id);
-        $post->setAttribute('to', $request->recived);
-        $post->setAttribute('post', $request->postEscrit);
+        $post->setAttribute('to', $request->to);
+        $post->setAttribute('post', $request->post);
         $post->save();
         
         event(new NewPostNotification($post));
         event(new NewWhisperingNotification($post));
 
-        return redirect('crearPost');
-        //return redirect('home');
+        //return redirect('crearPost');
+        return redirect('home');
+    }
+
+
+
+    public function likePost($id){
+        $likeExist = LikePost::where([
+            ['id_user', Auth::user()->id],
+            ['id_post', $id]
+        ])->get();
+        $res = false;
+        foreach ($likeExist as $like){
+            $res = true;
+            LikePost::destroy($like->id);
+        }
+
+        if (!$res){
+            $like = new LikePost;
+            $like->setAttribute('id_user', Auth::user()->id);
+            $like->setAttribute('id_post', $id);
+            $like->save();
+
+            $post = Post::find($id);
+            $post->likes = $post->likes + 1;
+
+            $post->save();
+            
+            echo "entra<br>";
+        }else {
+            $post = Post::find($id);
+            $post->likes = $post->likes - 1;
+
+            $post->save();
+            echo "no entra<br>";
+        }
+        //
+        //print_r ($likeExist);
+        //echo "<br>Illuminate\Database\Eloquent\Collection Object ( [items:protected] => Array ( ) )";
+
+        return redirect('home');
     }
 
 

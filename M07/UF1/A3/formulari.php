@@ -21,8 +21,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fichero_subido = $dir_subida.basename($_FILES["arxiu"]["name"]);
     
     if(move_uploaded_file($_FILES["arxiu"]["tmp_name"], $fichero_subido)){
-        echo "Mostra la imatge, <img src=\"".$fichero_subido."\"><br><br>";         //para enseñar la imagen
-        //echo "Mirar el arxiu, <a href=\"".$fichero_subido."\">link</a>";  //para mostrar un link que te encian a la pagina
+        //echo "Mostra la imatge, <img src=\"".$fichero_subido."\"><br><br>";         //para enseñar la imagen
+        echo "Mirar el arxiu, <a href=\"".$fichero_subido."\">link</a>";  //para mostrar un link que te encian a la pagina
     }else {
         echo "No has pujat cap arxiu";
     }
